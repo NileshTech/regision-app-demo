@@ -11,11 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Country Details',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Country Details'),
     );
   }
 }
@@ -33,12 +34,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          // appBar: AppBar(
-          //   title: Text(widget.title),
-          // ),
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+            // appBar: AppBar(
+            //   title: Text(widget.title),
+            // ),
 
-          body: RegionSelectionPage()),
+            body: RegionSelectionPage()),
+      ),
     );
   }
 }
